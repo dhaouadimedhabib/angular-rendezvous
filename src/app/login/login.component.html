@@ -1,0 +1,74 @@
+<section class="background-radial-gradient overflow-hidden d-flex align-items-center justify-content-center min-vh-100">
+
+  <div class="container px-4 py-5 px-md-5 text-center text-lg-start my-5">
+    <div class="row gx-lg-5 align-items-center">
+      <div class="col-lg-6 mb-5 mb-lg-0 text-center text-lg-start" style="z-index: 10">
+        <h1 class="my-5 display-5 fw-bold ls-tight text-white">
+          Access Your Account
+        </h1>
+        <p class="lead text-white-50 mb-0">
+          Log in to discover all our features.
+        </p>
+      </div>
+
+      <div class="col-lg-6 mb-5 mb-lg-0 position-relative">
+        <div id="radius-shape-1" class="position-absolute rounded-circle shadow-lg"></div>
+        <div id="radius-shape-2" class="position-absolute shadow-lg"></div>
+
+        <div class="card bg-glass-modern shadow-lg border-0">
+          <div class="card-body p-5 d-flex flex-column align-items-center">
+            <h2 class="card-title mb-4 fw-bold">Login</h2>
+            <form class="w-100" (ngSubmit)="login()">
+              <div class="form-outline mb-4">
+                <label class="form-label visually-hidden" for="username">Username</label>
+                <input type="text" id="username" name="username" class="form-control form-control-lg modern-input" [(ngModel)]="username" placeholder="Username" required>
+              </div>
+
+              <div class="form-outline mb-4">
+                <label class="form-label visually-hidden" for="password">Password</label>
+                <input type="password" id="password" name="password" class="form-control form-control-lg modern-input" [(ngModel)]="password" placeholder="Password" required>
+              </div>
+
+              <div class="mb-4 text-end">
+                <a class="text-primary text-decoration-none fw-bold small-link" routerLink="/reset-password">Forgot Password?</a>
+              </div>
+
+              <button type="submit" class="btn btn-primary btn-lg btn-block w-100 modern-button mb-4">
+                Log In
+              </button>
+
+              <p class="mb-0 text-center text-muted">Don't have an account? <a routerLink="/register" class="text-primary text-decoration-none fw-bold small-link">Sign up here</a></p>
+
+              <div class="text-center mt-4">
+                <p class="text-muted mb-3">Or sign in with:</p>
+                <div class="d-flex justify-content-center">
+                    <button type="button" class="btn btn-outline-secondary btn-lg btn-floating mx-2 modern-social-button">
+                        <a [routerLink]="['/signin-facebook']" aria-label="Sign in with Facebook" class="text-dark">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                    </button>
+                    <button type="button" class="btn btn-outline-secondary btn-lg btn-floating mx-2 modern-social-button">
+                        <a [routerLink]="['/signin-google']" aria-label="Sign in with Google" class="text-dark">
+                            <i class="fab fa-google"></i>
+                        </a>
+                    </button>
+                    <button type="button" class="btn btn-outline-secondary btn-lg btn-floating mx-2 modern-social-button">
+                        <a [routerLink]="['/signin-twitter']" aria-label="Sign in with Twitter" class="text-dark">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                    </button>
+                    <button type="button" class="btn btn-outline-secondary btn-lg btn-floating mx-2 modern-social-button">
+                        <a [routerLink]="['/signin-github']" aria-label="Sign in with GitHub" class="text-dark">
+                            <i class="fab fa-github"></i>
+                        </a>
+                    </button>
+                </div>
+              </div>
+            </form>
+            <p *ngIf="error" class="text-danger mt-3">{{ error }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

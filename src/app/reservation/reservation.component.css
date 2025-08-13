@@ -1,0 +1,330 @@
+/* src/styles.css */
+
+/* Import Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:wght@300;400;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap');
+
+/* --- Global Body and HTML --- */
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden; /* Empêche le défilement horizontal */
+    font-family: 'Open Sans', sans-serif;
+    background-color: #f8f9fa; /* Exemple: un gris très clair pour les pages sans fond spécial */
+    color: #212121; /* --text-dark */
+    display: flex;
+    flex-direction: column;
+}
+
+/* Styles pour le conteneur principal du tableau de bord */
+body, .dashboard-main-content {
+    /* NOUVELLES VALEURS : légèrement plus claires (+5% de luminosité) */
+    background-color: hsl(218, 41%, 30%);
+    background-image: radial-gradient(650px circle at 0% 0%,
+        hsl(218, 41%, 30%) 15%,
+        hsl(218, 41%, 25%) 35%,
+        hsl(218, 41%, 15%) 75%,
+        hsl(218, 41%, 15%) 80%,
+        transparent 100%),
+        radial-gradient(1250px circle at 100% 100%,
+        hsl(218, 41%, 40%) 15%,
+        hsl(218, 41%, 25%) 35%,
+        hsl(218, 41%, 15%) 75%,
+        hsl(218, 41%, 15%) 80%,
+        transparent 100%);
+    background-attachment: fixed;
+    background-size: cover;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.dashboard-content-wrapper {
+    width: 100%;
+    padding-top: 40px;
+    padding-bottom: 40px;
+    flex-grow: 1;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+}
+
+/* --- Styles spécifiques à la page de réservation --- */
+.page-title, .section-heading {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    color: #ffffff; /* --text-light */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.page-title {
+    font-size: 2.8rem;
+    margin-bottom: 2rem;
+    padding-left: 1rem;
+    text-align: center;
+}
+
+.section-heading {
+    font-size: 1.6rem;
+    text-align: center;
+    margin-bottom: 1.5rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* Style de carte Glassmorphism */
+.card.glass-card {
+    background-color: hsla(0, 0%, 100%, 0.1); /* --glass-bg */
+    backdrop-filter: saturate(180%) blur(30px); /* --glass-backdrop-filter */
+    border-radius: 1.5rem;
+    border: 1px solid rgba(255, 255, 255, 0.2); /* --glass-border */
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3); /* --glass-shadow */
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    color: #ffffff; /* --text-light */
+    padding: 1.5rem;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.card.glass-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.4);
+}
+
+/* Carte du professionnel */
+.professional-image {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 4px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    margin-bottom: 1.5rem;
+    transition: transform 0.3s ease;
+}
+.professional-image:hover {
+    transform: scale(1.05);
+}
+.professional-name {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+    color: hsl(218, 81%, 75%); /* --accent-color */
+}
+.professional-detail {
+    font-size: 1rem;
+    color: rgba(255, 255, 255, 0.8);
+    margin-bottom: 0.2rem;
+}
+
+/* Styles personnalisés du Ngb-Datepicker */
+.ngb-datepicker-custom {
+    background-color: transparent;
+    border: none;
+    color: #ffffff; /* --text-light */
+    font-family: 'Open Sans', sans-serif;
+    padding: 1rem;
+    width: 100%;
+}
+
+.ngb-dp-header {
+    background-color: transparent;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding-bottom: 1rem;
+    margin-bottom: 1rem;
+}
+
+.ngb-dp-navigation-chevron { color: #ffffff; } /* --text-light */
+.ngb-dp-navigation-chevron:hover { color: hsl(218, 81%, 75%); } /* --accent-color */
+.ngb-dp-month-name { color: #ffffff; font-family: 'Montserrat', sans-serif; font-weight: 600; font-size: 1.1rem; } /* --text-light */
+.ngb-dp-weekday { color: rgba(255, 255, 255, 0.6); font-size: 0.9rem; font-weight: 600; }
+.ngb-dp-day { color: #ffffff; border-radius: 0.75rem; transition: background-color 0.2s ease, color 0.2s ease; } /* --text-light */
+.ngb-dp-day.text-muted { color: rgba(255, 255, 255, 0.4) !important; }
+.ngb-dp-day > div { padding: 0.5rem 0.75rem; height: auto; line-height: 1; display: flex; align-items: center; justify-content: center; min-width: 2.2rem; min-height: 2.2rem; }
+.ngb-dp-day.selected { background-color: #0d6efd !important; color: white !important; border-radius: 0.75rem; } /* --primary-color */
+.ngb-dp-day:hover { background-color: rgba(255, 255, 255, 0.15); color: #ffffff; } /* --text-light */
+.ngb-dp-today { border: 1px solid #0d6efd; background-color: rgba(13, 110, 253, 0.2); } /* --primary-color */
+.ngb-dp-day:focus { outline: none; box-shadow: 0 0 0 0.1rem rgba(13, 110, 253, 0.4); }
+
+
+/* Carte de disponibilité */
+.availability-slots-container {
+    flex-grow: 1;
+    display: flex;
+    flex-wrap: wrap;
+    align-content: flex-start;
+    gap: 0.75rem;
+    justify-content: center;
+    padding-top: 1rem;
+}
+
+.btn-slot {
+    background-color: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    color: #ffffff; /* --text-light */
+    font-weight: 600;
+    padding: 0.75rem 1.25rem;
+    border-radius: 0.75rem;
+    transition: background-color 0.2s ease, transform 0.1s ease, border-color 0.2s ease;
+    flex-grow: 1;
+    min-width: 100px;
+    max-width: 150px;
+    text-align: center;
+}
+.btn-slot:hover {
+    background-color: #0d6efd; /* --primary-color */
+    border-color: #0d6efd; /* --primary-color */
+    transform: translateY(-2px);
+    color: white;
+}
+.btn-slot:active {
+    transform: translateY(0);
+}
+
+/* Styles du Modal - MODIFIÉ POUR ÊTRE UNE COULEUR UNIE ET FONCTIONNER EN CSS PUR */
+.modal-content.glass-modal-content {
+    background-color: hsla(0, 0%, 100%, 0.85); /* Blanc avec 85% d'opacité - ajustez le 0.85 pour plus ou moins de transparence */
+    backdrop-filter: blur(10px) saturate(180%); /* Flou plus prononcé pour un meilleur effet visuel */
+    border-radius: 1.5rem;
+    border: 1px solid rgba(255, 255, 255, 0.3); /* Bordure légère et claire pour l'effet verre */
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.25); /* Ombre douce et légèrement plus prononcée */
+    color: #212121; /* Texte foncé pour un bon contraste */
+    transition: all 0.3s ease-in-out;
+}
+
+.modal-content.glass-modal-content .modal-header {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.15); /* Bordure sombre pour un fond clair */
+    padding: 1.5rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.modal-content.glass-modal-content .modal-title {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 1.8rem;
+    color: #0d6efd; /* --primary-color */
+    flex-grow: 1;
+    text-align: center;
+    text-shadow: none;
+}
+
+.modal-content.glass-modal-content .btn-close.btn-close-white {
+    filter: none;
+    color: #212121; /* --text-dark */
+    opacity: 0.6;
+    transition: opacity 0.2s ease;
+    margin-left: auto;
+}
+.modal-content.glass-modal-content .btn-close.btn-close-white:hover {
+    opacity: 1;
+}
+
+.modal-content.glass-modal-content .modal-body {
+    padding: 2rem;
+}
+
+.form-label {
+    color: #212121 !important; /* --text-dark */
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    text-shadow: none;
+}
+
+.form-control.form-control-modern, .form-select.form-select-modern {
+    background-color: rgba(255, 255, 255, 0.8); /* --modal-input-bg */
+    border: 1px solid rgba(0, 0, 0, 0.15); /* --modal-input-border */
+    color: #212121; /* --text-dark */
+    border-radius: 0.75rem;
+    padding: 0.75rem 1rem;
+    font-size: 1rem;
+    transition: background-color 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.form-control.form-control-modern::placeholder {
+    color: rgba(0, 0, 0, 0.4);
+}
+
+.form-control.form-control-modern:focus, .form-select.form-select-modern:focus {
+    background-color: rgba(255, 255, 255, 0.95);
+    border-color: #0d6efd; /* --primary-color */
+    box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
+    color: #212121; /* --text-dark */
+    outline: none;
+}
+
+.form-select-modern option {
+    background-color: hsla(0, 0%, 100%, 0.95); /* --modal-glass-bg */
+    color: #212121; /* --text-dark */
+}
+
+.modal-content.glass-modal-content .modal-footer {
+    border-top: 1px solid rgba(0, 0, 0, 0.15); /* Bordure sombre pour un fond clair */
+    padding: 1.5rem 2rem;
+    justify-content: flex-end;
+}
+
+.btn-secondary-custom {
+    background-color: rgba(0, 0, 0, 0.08);
+    border-color: rgba(0, 0, 0, 0.25);
+    color: #212121; /* --text-dark */
+    font-weight: 600;
+    border-radius: 0.75rem;
+    padding: 0.75rem 1.5rem;
+    transition: background-color 0.2s ease, transform 0.1s ease, border-color 0.2s ease;
+}
+.btn-secondary-custom:hover {
+    background-color: rgba(0, 0, 0, 0.15);
+    border-color: rgba(0, 0, 0, 0.4);
+    transform: translateY(-2px);
+    color: #212121; /* --text-dark */
+}
+
+.btn-primary-custom {
+    background-color: #0d6efd; /* --primary-color */
+    border-color: #0d6efd; /* --primary-color */
+    color: #ffffff; /* --text-light */
+    font-weight: 600;
+    border-radius: 0.75rem;
+    padding: 0.75rem 1.5rem;
+    transition: background-color 0.2s ease, transform 0.1s ease;
+}
+.btn-primary-custom:hover {
+    background-color: #0a58ca;
+    border-color: #0a58ca;
+    transform: translateY(-2px);
+    color: white;
+}
+
+/* Ajustements responsifs */
+@media (max-width: 991.98px) {
+    .page-title { font-size: 2.2rem; text-align: center; padding-left: 0; }
+    .section-heading { font-size: 1.4rem; }
+    .reservation-grid .col-md-4, .reservation-grid .col-lg-3, .reservation-grid .col-lg-4, .reservation-grid .col-lg-5 { margin-bottom: 2rem; }
+    .professional-image { width: 120px; height: 120px; }
+    .professional-name { font-size: 1.3rem; }
+    .professional-detail { font-size: 0.9rem; }
+    .btn-slot { padding: 0.6rem 1rem; font-size: 0.9rem; min-width: 80px; }
+    .modal-content.glass-modal-content .modal-header, .modal-content.glass-modal-content .modal-body, .modal-content.glass-modal-content .modal-footer { padding: 1.25rem 1.5rem; }
+    .modal-content.glass-modal-content .modal-title { font-size: 1.5rem; }
+}
+
+@media (max-width: 767.98px) {
+    .page-title { font-size: 2rem; }
+    .section-heading { font-size: 1.2rem; }
+    .card.glass-card { padding: 1rem; }
+    .professional-image { width: 100px; height: 100px; margin-bottom: 1rem; }
+    .professional-name { font-size: 1.2rem; }
+    .professional-detail { font-size: 0.9rem; }
+    .availability-slots-container { gap: 0.5rem; }
+    .btn-slot { padding: 0.5rem 0.8rem; font-size: 0.85rem; min-width: unset; }
+    .modal-content.glass-modal-content .modal-header, .modal-content.glass-modal-content .modal-body, .modal-content.glass-modal-content .modal-footer { padding: 1rem; }
+    .modal-content.glass-modal-content .modal-title { font-size: 1.3rem; }
+}

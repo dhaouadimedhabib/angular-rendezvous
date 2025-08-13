@@ -1,0 +1,199 @@
+/* Importation de police et de Bootstrap variables si ce n'est pas déjà fait */
+@charset "UTF-8";
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap');
+
+/* Définition des variables de couleurs si non présentes via Bootstrap */
+:root {
+  --bs-primary: #0d6efd; /* Bleu Bootstrap standard, ou une nuance plus moderne si désiré */
+  --bs-secondary: #6c757d; /* Gris Bootstrap standard */
+  --bs-dark-blue: #0A1931; /* Un bleu très foncé pour le fond */
+  --bs-light-blue: #185ADB; /* Un bleu plus clair pour les dégradés */
+  --bs-accent-blue: #007bff; /* Bleu d'accent */
+}
+
+
+/* Fond radial gradient harmonisé */
+.background-radial-gradient {
+  background-color: var(--bs-dark-blue); /* Couleur de fond plus profonde */
+  background-image: radial-gradient(650px circle at 0% 0%, hsl(218, 41%, 25%) 15%, hsl(218, 41%, 20%) 35%, hsl(218, 41%, 15%) 75%, hsl(218, 41%, 10%) 80%, transparent 100%),
+                    radial-gradient(1250px circle at 100% 100%, hsl(218, 41%, 35%) 15%, hsl(218, 41%, 25%) 35%, hsl(218, 41%, 15%) 75%, hsl(218, 41%, 10%) 80%, transparent 100%);
+  /* Effet de centrage pour la section entière */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh; /* S'assurer qu'elle prend toute la hauteur de la vue */
+}
+
+/* Formes radiales avec couleurs harmonisées et ombres */
+#radius-shape-1 {
+  height: 250px; /* Légèrement plus grand */
+  width: 250px;
+  top: -80px; /* Positionnement ajusté */
+  left: -150px;
+  background: radial-gradient(hsl(218, 60%, 40%), hsl(218, 80%, 30%)); /* Bleus harmonisés */
+  overflow: hidden;
+  position: absolute;
+  border-radius: 50%;
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4); /* Ombre plus prononcée pour la profondeur */
+}
+
+#radius-shape-2 {
+  border-radius: 38% 62% 63% 37% / 70% 33% 67% 30%;
+  bottom: -80px; /* Positionnement ajusté */
+  right: -130px;
+  width: 350px; /* Légèrement plus grand */
+  height: 350px;
+  background: radial-gradient(hsl(218, 60%, 40%), hsl(218, 75%, 31%)); /* Bleus harmonisés */
+  overflow: hidden;
+  position: absolute;
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4); /* Ombre plus prononcée */
+}
+
+/* Carte de connexion (le "bg-glass" amélioré) */
+.card.bg-glass-modern {
+  background-color: hsla(0, 0%, 100%, 0.1) !important; /* Moins d'opacité pour un effet plus doux */
+  backdrop-filter: saturate(180%) blur(30px); /* Plus de flou pour un effet "glass" prononcé */
+  border-radius: 1.5rem; /* Bords plus arrondis */
+  border: 1px solid rgba(255, 255, 255, 0.2); /* Bordure subtile pour l'effet verre */
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3); /* Ombre plus douce et plus large */
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out; /* Animation au survol */
+}
+
+.card.bg-glass-modern:hover {
+  transform: translateY(-5px); /* Léger soulèvement au survol */
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.4); /* Ombre accentuée au survol */
+}
+
+/* Titre du formulaire dans la carte */
+.card-title {
+  color: #fff; /* Blanc pour le titre du formulaire sur le fond translucide */
+}
+
+/* Champs de saisie modernes */
+.form-control.modern-input {
+  background-color: rgba(255, 255, 255, 0.1); /* Fond légèrement transparent */
+  border: 1px solid rgba(255, 255, 255, 0.3); /* Bordure blanche subtile */
+  color: #fff; /* Texte blanc */
+  border-radius: 0.75rem; /* Bords arrondis */
+  padding: 0.75rem 1.25rem; /* Plus d'espace intérieur */
+  transition: all 0.3s ease-in-out;
+}
+
+.form-control.modern-input::placeholder {
+  color: rgba(255, 255, 255, 0.6); /* Couleur du placeholder plus claire */
+}
+
+.form-control.modern-input:focus {
+  background-color: rgba(255, 255, 255, 0.2);
+  border-color: var(--bs-primary); /* Bordure de la couleur primaire au focus */
+  box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25); /* Ombre de focus de Bootstrap */
+  color: #fff;
+}
+
+/* Bouton de connexion moderne */
+.btn.modern-button {
+  background-color: var(--bs-primary); /* Utilise la couleur primaire de Bootstrap */
+  border: none;
+  border-radius: 0.75rem; /* Bords arrondis */
+  padding: 0.75rem 1.5rem;
+  font-weight: 600; /* Plus gras */
+  transition: background-color 0.3s ease-in-out, transform 0.2s ease-in-out;
+}
+
+.btn.modern-button:hover {
+  background-color: var(--bs-link-hover-color); /* Couleur plus foncée au survol */
+  transform: translateY(-2px); /* Léger soulèvement au survol */
+}
+
+.btn.modern-button:active {
+  transform: translateY(0); /* Retour à la position normale au clic */
+}
+
+/* Liens "Mot de passe oublié" et "S'inscrire" */
+.small-link {
+  font-size: 0.9rem; /* Légèrement plus petit */
+  color: var(--bs-primary) !important; /* Assurez-vous que la couleur primaire est appliquée */
+  transition: color 0.2s ease-in-out;
+}
+
+.small-link:hover {
+  color: var(--bs-link-hover-color) !important;
+}
+
+/* Boutons de médias sociaux modernes */
+.modern-social-button {
+  width: 50px; /* Taille fixe */
+  height: 50px; /* Taille fixe */
+  border-radius: 50%; /* Boutons circulaires */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(255, 255, 255, 0.1); /* Fond légèrement transparent */
+  border: 1px solid rgba(255, 255, 255, 0.3); /* Bordure subtile */
+  transition: all 0.3s ease-in-out;
+}
+
+.modern-social-button i {
+  font-size: 1.5rem; /* Taille de l'icône */
+  color: #fff; /* Couleur de l'icône blanche */
+  transition: color 0.3s ease-in-out;
+}
+
+.modern-social-button:hover {
+  background-color: var(--bs-primary); /* Couleur primaire au survol */
+  border-color: var(--bs-primary);
+  transform: translateY(-3px);
+}
+
+.modern-social-button:hover i {
+  color: #fff; /* Garder l'icône blanche au survol */
+}
+
+/* Styles pour le message d'erreur */
+.text-danger {
+  color: #ff6b6b !important; /* Un rouge d'erreur un peu plus doux */
+  font-weight: 500;
+  background-color: rgba(255, 0, 0, 0.1); /* Fond très léger pour le message */
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+}
+
+
+/* MODIFICATION : Règle pour rendre le texte "Access Your Account" plus foncé */
+.background-radial-gradient h1.text-white {
+  color: #2c2b2b !important; /* Ancien: #c0c0c0 -> Nouveau: #a0a0a0 */
+}
+
+/* MODIFICATION : Règle pour rendre le texte "Log in to discover all our features." plus foncé */
+.background-radial-gradient p.lead {
+  color: #2c2b2b !important; /* Ancien: #a0a0a0 -> Nouveau: #808080 */
+}
+
+/* Améliorations responsives si nécessaire */
+@media (max-width: 991.98px) { /* Pour les écrans plus petits que large (lg) */
+  .background-radial-gradient {
+    padding: 2rem 1rem; /* Moins de padding sur mobile */
+  }
+  .container.px-4.py-5.px-md-5.text-center.text-lg-start.my-5 {
+    padding: 0;
+  }
+  .card-body {
+    padding: 2.5rem !important; /* Ajuster le padding de la carte sur mobile */
+  }
+  h1.display-5 {
+    font-size: 2.25rem !important; /* Réduire la taille du titre */
+    margin-bottom: 1rem !important;
+  }
+  .lead {
+    font-size: 1rem !important;
+  }
+}
+
+@media (max-width: 767.98px) { /* Pour les écrans plus petits que medium (md) */
+    #radius-shape-1, #radius-shape-2 {
+        display: none; /* Masquer les formes sur très petits écrans si elles gênent */
+    }
+    .col-lg-6.mb-5.mb-lg-0 {
+        margin-bottom: 2rem !important; /* Espacement ajusté */
+    }
+}

@@ -1,0 +1,398 @@
+/* Importation de police et de Bootstrap variables */
+@charset "UTF-8";
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap');
+
+/* Définition des variables de couleurs cohérentes avec login */
+:root {
+  --bs-primary: #0d6efd;
+  --bs-secondary: #6c757d;
+  --bs-dark-blue: #0A1931;
+  --bs-light-blue: #185ADB;
+  --bs-accent-blue: #007bff;
+  --bs-success: #198754;
+  --bs-warning: #ffc107;
+  --bs-danger: #dc3545;
+}
+
+/* Fond principal avec gradient radial - REMOVE WHITE LINE */
+.container.mt-5 {
+  background-color: var(--bs-dark-blue);
+  background-image: radial-gradient(650px circle at 0% 0%, hsl(218, 41%, 25%) 15%, hsl(218, 41%, 20%) 35%, hsl(218, 41%, 15%) 75%, hsl(218, 41%, 10%) 80%, transparent 100%),
+                    radial-gradient(1250px circle at 100% 100%, hsl(218, 41%, 35%) 15%, hsl(218, 41%, 25%) 35%, hsl(218, 41%, 15%) 75%, hsl(218, 41%, 10%) 80%, transparent 100%);
+  min-height: 100vh;
+  padding: 2rem 2rem 0 2rem; /* Remove bottom padding */
+  border-radius: 0;
+  margin: 0 !important; /* Force no margin */
+  margin-top: 0 !important; /* Force no top margin */
+  max-width: 100% !important;
+  width: 100vw; /* Full viewport width */
+  position: relative;
+  overflow: hidden;
+}
+
+/* Remove any body margin/padding that might cause white line */
+body {
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+/* Formes décoratives similaires au login */
+.container.mt-5::before {
+  content: '';
+  position: absolute;
+  height: 300px;
+  width: 300px;
+  top: -100px;
+  right: -150px;
+  background: radial-gradient(hsl(218, 60%, 40%), hsl(218, 80%, 30%));
+  border-radius: 50%;
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
+  z-index: 1;
+}
+
+.container.mt-5::after {
+  content: '';
+  position: absolute;
+  height: 250px;
+  width: 250px;
+  bottom: -80px;
+  left: -120px;
+  background: radial-gradient(hsl(218, 60%, 40%), hsl(218, 75%, 31%));
+  border-radius: 38% 62% 63% 37% / 70% 33% 67% 30%;
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
+  z-index: 1;
+}
+
+/* Bouton de profil moderne - POSITIONED AT TOP RIGHT */
+.profile-button {
+  position: absolute !important;
+  top: 20px;
+  right: 20px;
+  z-index: 1000;
+  background-color: rgba(255, 255, 255, 0.1) !important;
+  backdrop-filter: saturate(180%) blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.2) !important;
+  border-radius: 2rem !important;
+  color: #fff !important;
+  padding: 0.75rem 1.5rem !important;
+  font-weight: 500;
+  transition: all 0.3s ease-in-out;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+}
+
+.profile-button:hover {
+  background-color: var(--bs-primary) !important;
+  transform: translateY(-2px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
+}
+
+/* Titre principal */
+h2.text-center {
+  color: #fff !important;
+  font-weight: 700;
+  font-size: 2.5rem;
+  text-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  margin-bottom: 2rem;
+  position: relative;
+  z-index: 10;
+}
+
+/* Barre de recherche moderne */
+.input-group {
+  position: relative;
+  z-index: 10;
+  max-width: 600px;
+  margin: 0 auto 2rem auto;
+}
+
+.input-group .form-control {
+  background-color: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: #fff;
+  border-radius: 1rem 0 0 1rem;
+  padding: 0.75rem 1.25rem;
+  transition: all 0.3s ease-in-out;
+  font-size: 1rem;
+}
+
+.input-group .form-control::placeholder {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.input-group .form-control:focus {
+  background-color: rgba(255, 255, 255, 0.2);
+  border-color: var(--bs-primary);
+  box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
+  color: #fff;
+}
+
+.input-group .btn {
+  background-color: var(--bs-primary);
+  border: 1px solid var(--bs-primary);
+  border-radius: 0 1rem 1rem 0;
+  padding: 0.75rem 1.5rem;
+  font-weight: 600;
+  transition: all 0.3s ease-in-out;
+}
+
+.input-group .btn:hover {
+  background-color: #0b5ed7;
+  border-color: #0b5ed7;
+  transform: translateY(-1px);
+}
+
+/* Indicateur de chargement */
+.loading-spinner {
+  position: relative;
+  z-index: 10;
+  color: #fff;
+  padding: 3rem;
+}
+
+.loading-spinner p {
+  margin-top: 1rem;
+  font-size: 1.1rem;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+/* Cartes de rendez-vous modernes - IMPROVED CONTRAST */
+.card {
+  background-color: rgba(255, 255, 255, 0.05) !important; /* Less transparent for better contrast */
+  backdrop-filter: saturate(180%) blur(30px);
+  border: 1px solid rgba(255, 255, 255, 0.3) !important; /* Stronger border */
+  border-radius: 1.5rem !important;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4); /* Darker shadow */
+  transition: all 0.3s ease-in-out;
+  position: relative;
+  z-index: 10;
+  margin-bottom: 1.5rem;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+}
+
+/* En-tête de carte */
+.card-header {
+  background-color: var(--bs-primary) !important;
+  border: none !important;
+  border-radius: 1.5rem 1.5rem 0 0 !important;
+  padding: 1.25rem 1.5rem;
+  color: #fff !important;
+}
+
+.card-header h5 {
+  font-weight: 600;
+  margin: 0;
+}
+
+/* Badges de statut */
+.badge {
+  padding: 0.5rem 1rem;
+  border-radius: 2rem;
+  font-weight: 500;
+  font-size: 0.875rem;
+}
+
+.badge.bg-success {
+  background-color: var(--bs-success) !important;
+  box-shadow: 0 4px 15px rgba(25, 135, 84, 0.3);
+}
+
+.badge.bg-warning {
+  background-color: var(--bs-warning) !important;
+  color: #000 !important;
+  box-shadow: 0 4px 15px rgba(255, 193, 7, 0.3);
+}
+
+.badge.bg-danger {
+  background-color: var(--bs-danger) !important;
+  box-shadow: 0 4px 15px rgba(220, 53, 69, 0.3);
+}
+
+/* Corps de carte - IMPROVE TEXT VISIBILITY */
+.card-body {
+  padding: 1.5rem;
+  color: #fff !important; /* Force white text */
+  background-color: rgba(0, 0, 0, 0.2); /* Darker background for better contrast */
+}
+
+.card-body p {
+  margin-bottom: 0.75rem;
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  color: #fff !important; /* Force white text */
+  font-weight: 500; /* Make text bolder */
+}
+
+.card-body p i {
+  margin-right: 0.75rem;
+  color: #ffffff !important; /* Change icon color to white for better visibility */
+  width: 16px;
+  text-align: center;
+}
+
+.card-body strong {
+  font-weight: 700 !important; /* Make labels even bolder */
+  margin-right: 0.5rem;
+  color: #fff !important; /* Force white text */
+}
+
+/* Bouton Details */
+.btn-outline-primary {
+  border: 2px solid var(--bs-primary);
+  color: var(--bs-primary);
+  background-color: transparent;
+  border-radius: 0.75rem;
+  padding: 0.5rem 1.25rem;
+  font-weight: 500;
+  transition: all 0.3s ease-in-out;
+}
+
+.btn-outline-primary:hover {
+  background-color: var(--bs-primary);
+  border-color: var(--bs-primary);
+  color: #fff;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(13, 110, 253, 0.3);
+}
+
+/* Section de pagination */
+.pagination-container {
+  position: relative;
+  z-index: 10;
+  align-items: center;
+  gap: 1rem;
+  color: #fff;
+  font-weight: 500;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.pagination-container span {
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 1rem;
+  padding: 0 1rem;
+}
+
+/* Boutons de pagination */
+.btn-secondary {
+  background-color: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: #fff;
+  border-radius: 0.75rem;
+  padding: 0.5rem 1.25rem;
+  font-weight: 500;
+  transition: all 0.3s ease-in-out;
+}
+
+.btn-secondary:hover:not(:disabled) {
+  background-color: var(--bs-primary);
+  border-color: var(--bs-primary);
+  color: #fff;
+  transform: translateY(-2px);
+}
+
+.btn-secondary:disabled {
+  background-color: rgba(255, 255, 255, 0.05);
+  border-color: rgba(255, 255, 255, 0.1);
+  color: rgba(255, 255, 255, 0.3);
+  cursor: not-allowed;
+}
+
+/* Conteneur principal centré */
+.row .col-md-8 {
+  position: relative;
+  z-index: 10;
+}
+
+/* Styles responsives */
+@media (max-width: 991.98px) {
+  .container.mt-5 {
+    padding: 1rem;
+  }
+  
+  h2.text-center {
+    font-size: 2rem;
+    margin-top: 4rem; /* Space for profile button */
+  }
+  
+  .profile-button {
+    top: 10px;
+    right: 10px;
+    padding: 0.5rem 1rem !important;
+    font-size: 0.9rem;
+  }
+  
+  .card-header {
+    padding: 1rem;
+  }
+  
+  .card-body {
+    padding: 1rem;
+  }
+}
+
+@media (max-width: 767.98px) {
+  .container.mt-5::before,
+  .container.mt-5::after {
+    display: none;
+  }
+  
+  h2.text-center {
+    font-size: 1.75rem;
+    margin-bottom: 1.5rem;
+    margin-top: 4rem; /* Extra space for profile button on mobile */
+  }
+  
+  .input-group {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  
+  .input-group .form-control,
+  .input-group .btn {
+    border-radius: 0.75rem;
+  }
+  
+  .card-header {
+    flex-direction: column;
+    gap: 0.75rem;
+    align-items: flex-start !important;
+  }
+  
+  .pagination-container {
+    flex-direction: column;
+    align-items: center;
+    gap: 0.75rem;
+  }
+  
+  .pagination-container .btn {
+    width: 120px;
+  }
+}
+
+/* Animation d'entrée pour les cartes */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.card {
+  animation: fadeInUp 0.6s ease-out;
+  animation-fill-mode: both;
+}
+
+.card:nth-child(1) { animation-delay: 0.1s; }
+.card:nth-child(2) { animation-delay: 0.2s; }
+.card:nth-child(3) { animation-delay: 0.3s; }
+.card:nth-child(4) { animation-delay: 0.4s; }
+.card:nth-child(5) { animation-delay: 0.5s; }

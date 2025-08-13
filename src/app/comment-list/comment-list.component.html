@@ -1,0 +1,35 @@
+<section class="comments">
+    <h3 class="mb-5">If you like Our Posts leave a comment down below</h3>
+    <div class="row mb-4">
+      <ul *ngFor="let i of comments">
+        <div class="col-md-2">
+          <img src="bg-counter2.jpg" class="img-fluid" alt="">
+        </div>
+        <div class="col-md-10 comments-info">
+          <div class="comment-info">
+            <p class="mb-4 inline-block" style="margin-left: 5px;">{{i.commentDate}}</p>
+            <p class="mb-4 inline-block" style="margin-left: 5px;">{{i.commentContent}}</p>
+
+          </div>
+          <div class="d-flex justify-content-between">
+            <p>
+              <button  type="button" class="btn btn">
+                <i class="bi bi-trash-fill"></i>
+              </button>
+            </p>
+          </div>
+        </div>
+      </ul>
+    </div>
+    <nav aria-label="..." class="d-flex justify-content-center">
+     
+        <div class="d-flex justify-content-center">
+          <pagination-controls
+            previousLabel="Prev"
+            nextLabel="Next"
+            (pageChange)="onTableDataChange($event)"
+          >
+          </pagination-controls>
+        </div>
+    </nav>
+  </section>

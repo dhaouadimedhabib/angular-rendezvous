@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>Dashboard - SB Admin</title>
+        <link href="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/style.min.css" rel="stylesheet" />
+         <link  href="/src/style.css">
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.0/font/bootstrap-icons.css" rel="stylesheet">
+      
+    </head>
+    <body class="sb-nav-fixed">
+        <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
+            <!-- Navbar Brand-->
+            <a class="navbar-brand ps-3" href="../index.html">
+              <img src="../assets/img/942759.png" alt="Logo" class="navbar-logo"/>
+            </a>              <!-- Sidebar Toggle-->
+            <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!"><i class="fas fa-bars"></i></button>
+            <!-- Navbar Search-->
+            <form class="d-none d-md-inline-block form-inline ms-auto me-0 me-md-3 my-2 my-md-0">
+                
+            </form>
+            <!-- Navbar-->
+            <ul class="navbar-nav ms-auto ms-md-0 me-3 me-lg-4 vertical">
+                <!-- Icône de notification -->
+                <li class="nav-item">
+                    <button class="nav-link">
+                        <i class="fas fa-bell fa-fw"></i> <!-- Icône de notification -->
+                        <span class="badge bg-danger">3</span> <!-- Badge de notification -->
+                    </button>
+                </li>
+                <li class="nav-item">
+                    <button class="nav-link" onclick="redirectToSettings()"><i class="fas fa-cog fa-fw"></i></button>
+                </li>
+                <li class="nav-item">
+                    <button class="nav-link" onclick="redirectToActivityLog()"><i class="fas fa-history fa-fw"></i></button>
+                </li>
+                <li class="nav-item">
+                    <button class="nav-link" onclick="logout()"><i class="bi bi-box-arrow-in-left"></i></button>
+                </li>
+                
+            </ul>
+        </nav>
+        <div id="layoutSidenav">
+            <div id="layoutSidenav_nav">
+                <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
+                    <div class="sb-sidenav-menu">
+                        <div class="nav">
+                            
+                            <div class="sb-sidenav-menu-heading">Interface</div>
+                            <a class="nav-link" routerLink="/plan" href="#" data-bs-toggle="collapse" data-bs-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">
+                                <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
+                                Planning
+                            </a>
+                            <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
+                                <nav class="sb-sidenav-menu-nested nav">
+                                    <a class="nav-link" href="layout-static.html">Static Navigation</a>
+                                    <a class="nav-link" href="layout-sidenav-light.html">Light Sidenav</a>
+                                </nav>
+                            </div>
+                            <a class="nav-link collapsed" routerLink="/listerdv" href="#" data-bs-toggle="collapse" data-bs-target="#collapsePages" aria-expanded="false" aria-controls="collapsePages">
+                                <div class="sb-nav-link-icon"><i class="fas fa-book-open"></i></div>
+                                Appoiment
+                            </a>
+                            <a class="nav-link" routerLink="/service" href="#" data-bs-toggle="collapse" data-bs-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">
+                                <div class="sb-nav-link-icon"><i class="fas fa-concierge-bell"></i></div>
+                                Service
+                            </a>
+                            <div class="sb-sidenav-menu-heading">Addons</div>
+                            <a class="nav-link" routerLink="/update">
+                              <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
+                              Profil
+                          </a>
+                          <a class="nav-link" routerLink="/reclamation" href="tables.html">
+                              <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
+                              Complaint 
+                          </a>
+                          <a class="nav-link" routerLink="/article" href="tables.html">
+                            <div class="sb-nav-link-icon"><i class="fas fa-file-alt"></i></div>
+                            Article 
+                        </a>
+                        </div>
+                    </div>
+                    
+                </nav>
+            </div>
+            <div id="layoutSidenav_content">
+                <div *ngIf="reclamations.length > 0; else noReclamations">
+                    <h2 style="text-align: center; font-family: Arial, sans-serif; color: #4A90E2;">Complaint Management</h2>
+                  
+                    <!-- Champ de recherche -->
+                    <div style="text-align: center; margin-bottom: 15px;">
+                      <input 
+                        type="text" 
+                        placeholder="Search complaints..." 
+                        [(ngModel)]="searchTerm" 
+                        class="form-control" 
+                        style="width: 50%; margin: 0 auto;"
+                      />
+                    </div>
+                  
+                    <table class="reclamation-table">
+                        <thead>
+                          <tr>
+                            <th (click)="sort('email')">
+                              Email
+                              <i  *ngIf="sortColumn === 'email'" [ngClass]="{'fas fa-sort-up': sortDirection, 'fas fa-sort-down': !sortDirection}"></i>
+                            </th>
+                            <th (click)="sort('phone')">
+                              Phone
+                              <i *ngIf="sortColumn === 'phone'" [ngClass]="{'fas fa-sort-up': sortDirection, 'fas fa-sort-down': !sortDirection}"></i>
+                            </th>
+                            <th (click)="sort('name')">
+                              Name
+                              <i *ngIf="sortColumn === 'name'" [ngClass]="{'fas fa-sort-up': sortDirection, 'fas fa-sort-down': !sortDirection}"></i>
+                            </th>
+                            <th (click)="sort('message')">
+                              Message
+                              <i *ngIf="sortColumn === 'message'" [ngClass]="{'fas fa-sort-up': sortDirection, 'fas fa-sort-down': !sortDirection}"></i>
+                            </th>
+                            <th>Actions</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr *ngFor="let reclamation of filteredReclamations()" class="reclamation-row">
+                            <td>{{ reclamation.email }}</td>
+                            <td>{{ reclamation.phone }}</td>
+                            <td>{{ reclamation.name }}</td>
+                            <td>{{ reclamation.message }}</td>
+                            <td>
+                              <button class="action-btn view-btn " >View Details</button>
+                              <button class="btn btn-icon btn-danger"> <i class="fas fa-trash"></i></button>
+
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                  </div>
+              
+              <ng-template #noReclamations>
+                <p style="text-align: center; color: #999;">No complaints available.</p>
+              </ng-template>
+            </div>
+        </div>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+        <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
+        <script src="../js/script.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>
+        <script src="../assets/demo/chart-area-demo.js"></script>
+        <script src="../assets/demo/chart-bar-demo.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/umd/simple-datatables.min.js" crossorigin="anonymous"></script>
+        <script src="../js/datatables-simple-demo.js"></script>
+        <script src = "../assets/demo/chart-pie-demo.js"></script>
+        <script src = "../assets/demo/datatables-demo.js"></script>
+        
+    </body>
+</html>

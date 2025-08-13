@@ -1,0 +1,105 @@
+<section class="page-section background-radial-gradient overflow-hidden d-flex align-items-center justify-content-center min-vh-100" id="services">
+  <div class="container px-4 py-5 px-md-5 text-center text-lg-start my-5">
+    <div class="row gx-lg-5 align-items-center mb-5">
+      <div class="col-lg-6 mb-5 mb-lg-0 text-center text-lg-start" style="z-index: 10">
+        <h1 class="my-5 display-5 fw-bold ls-tight text-white">
+          Effortless Appointment Management: <br />
+          <span style="color: hsl(218, 81%, 75%)">Sign Up Today!</span>
+        </h1>
+        <p class="lead" style="color: hsl(0, 0%, 4%);">
+          Sign up now for easy appointment management! Whether you're a doctor, lawyer, or consultant,
+          our platform helps you manage availability, communicate with clients,
+          and get real-time notifications. Create your account in a few clicks and save time!
+        </p>
+      </div>
+
+      <div class="col-lg-6 mb-5 mb-lg-0 position-relative">
+        <div id="radius-shape-1" class="position-absolute rounded-circle shadow-lg"></div>
+        <div id="radius-shape-2" class="position-absolute shadow-lg"></div>
+
+        <div class="card bg-glass-modern shadow-lg border-0">
+          <div class="card-body p-5">
+            <h2 class="card-title mb-4 fw-bold text-white text-center">Create Your Account</h2>
+            <form (submit)="register()" #signupForm="ngForm">
+              <div class="form-outline mb-4">
+                <label class="form-label visually-hidden" for="username">Username</label>
+                <input type="text" id="username" class="form-control form-control-lg modern-input" placeholder="Username" [(ngModel)]="user.username" name="username" pattern="[a-zA-Z0-9]+" title="Username must contain only letters and numbers (no spaces or special characters)" required #username="ngModel" />
+                <div class="invalid-feedback-modern" *ngIf="username?.invalid && (username?.dirty || username?.touched)">
+                  Username must contain only letters and numbers (no spaces or special characters).
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-md-6 mb-4">
+                  <div class="form-outline">
+                    <label class="form-label visually-hidden" for="firstName">First name</label>
+                    <input type="text" id="firstName" class="form-control form-control-lg modern-input" placeholder="First name" [(ngModel)]="user.firstName" name="firstName" pattern="[a-zA-Z]+" title="First name must contain only letters (no spaces or special characters)" required #firstName="ngModel"/>
+                    <div class="invalid-feedback-modern" *ngIf="firstName?.invalid && (firstName?.dirty || firstName?.touched)">
+                      First name must contain only letters (no spaces or special characters).
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-6 mb-4">
+                  <div class="form-outline">
+                    <label class="form-label visually-hidden" for="lastName">Last name</label>
+                    <input type="text" id="lastName" class="form-control form-control-lg modern-input" placeholder="Last name" [(ngModel)]="user.lastName" name="lastName" pattern="[a-zA-Z]+" title="Last name must contain only letters (no spaces or special characters)" required #lastName="ngModel"/>
+                    <div class="invalid-feedback-modern" *ngIf="lastName?.invalid && (lastName?.dirty || lastName?.touched)">
+                      Last name must contain only letters (no spaces or special characters).
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-outline mb-4">
+                <label class="form-label visually-hidden" for="email">Email address</label>
+                <input type="email" id="email" class="form-control form-control-lg modern-input" placeholder="Email address" [(ngModel)]="user.email" name="email" pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}" title="Enter a valid email address" required #email="ngModel" />
+                <div class="invalid-feedback-modern" *ngIf="email?.invalid && (email?.dirty || email?.touched)">
+                  Please enter a valid email address.
+                </div>
+              </div>
+
+              <div class="form-outline mb-4">
+                <label class="form-label visually-hidden" for="phoneNumber">Phone number</label>
+                <input type="tel" id="phoneNumber" class="form-control form-control-lg modern-input" placeholder="Phone number" [(ngModel)]="user.numeroTel" name="phoneNumber" pattern="[0-9]{10}" title="Phone number must contain 10 digits" required #phoneNumber="ngModel"/>
+                <div class="invalid-feedback-modern" *ngIf="phoneNumber?.invalid && (phoneNumber?.dirty || phoneNumber?.touched)">
+                  Phone number must contain 10 digits.
+                </div>
+              </div>
+
+              <div class="form-outline mb-4">
+                <label class="form-label visually-hidden" for="password">Password</label>
+                <input type="password" id="password" class="form-control form-control-lg modern-input" placeholder="Password" [(ngModel)]="user.password" name="password" required pattern=".{6,}" title="Password must be at least 6 characters long" #password="ngModel"/>
+                <div class="invalid-feedback-modern" *ngIf="password?.invalid && (password?.dirty || password?.touched)">
+                  Password must be at least 6 characters long.
+                </div>
+              </div>
+
+              <div class="form-outline mb-4">
+    <label class="form-label text-white-50 small" for="fileUpload">Upload Profile Picture (Optional)</label>
+    <div class="file-input-wrapper">
+        <label for="fileUpload" class="custom-file-button btn modern-button">Choose a file</label>
+<span id="file-name" class="file-name text-white-50 small">{{ user.image || 'No file chosen' }}</span>
+        <input type="file" id="fileUpload" class="file-input" (change)="onFileSelected($event)">
+    </div>
+</div>
+
+              <div class="form-check d-flex justify-content-center mb-4">
+                <input class="form-check-input me-2" type="checkbox" value="" id="subscribe" checked />
+                <label class="form-check-label text-white-50" for="subscribe">
+                  Subscribe to our newsletter
+                </label>
+              </div>
+
+              <button type="submit" class="btn btn-primary btn-lg btn-block w-100 modern-button" [disabled]="signupForm.invalid">
+                Sign Up
+              </button>
+
+              <p class="mb-0 text-center text-muted mt-3">Already have an account? <a routerLink="/login" class="text-primary text-decoration-none fw-bold small-link">Log in here</a></p>
+
+              </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

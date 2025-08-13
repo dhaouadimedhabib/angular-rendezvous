@@ -1,0 +1,40 @@
+.navbar-logo {
+    width: 50px; /* Largeur fixe pour un petit logo */
+    height: auto; /* Conserve les proportions de l'image */
+  }
+  .search-wrapper {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+    max-width: 250px; /* Adjust the width as needed */
+  }
+  
+  .search-input {
+    width: 100%;
+    padding: 10px 15px;
+    padding-left: 35px; /* Space for the search icon */
+    border: 1px solid #d1d1d1;
+    border-radius: 15px; /* Slightly rounded corners */
+    background-color: #f7f7f7;
+    font-size: 14px;
+    color: #555;
+    outline: none;
+    transition: border-color 0.3s ease;
+  }
+  
+  .search-input::placeholder {
+    color: #aaa;
+  }
+  
+  .search-input:focus {
+    border-color: #007bff;
+  }
+  
+  .search-icon {
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 14px;
+    color: #aaa;
+  }

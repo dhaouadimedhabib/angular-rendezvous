@@ -1,0 +1,108 @@
+/* Header styling */
+.headings {
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding: 80px 0;
+    position: relative;
+    text-align: center;
+    color: #fff;
+  }
+  .headings::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 0;
+  }
+  .headings .text-heading {
+    position: relative;
+    z-index: 1;
+  }
+  .headings h1, .headings h2 {
+    color: #fff;
+  }
+  .link-style {
+    color: red;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 0 5px;
+  }
+  
+  /* Blog section styling */
+  .blog-section {
+    padding: 40px 0;
+    background-color: #f8f8f8;
+  }
+  .blog-posts {
+    padding-right: 20px;
+  }
+  .post-container {
+    margin-bottom: 30px;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 20px;
+  }
+  .news-img-link {
+    display: block;
+    margin-bottom: 15px;
+  }
+  .news-item-img img {
+    width: 100%;
+    border-radius: 8px;
+  }
+  .news-item-text h3 {
+    font-size: 24px;
+    margin-bottom: 10px;
+  }
+  .dates {
+    font-size: 14px;
+    color: #888;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .action-list {
+    display: flex;
+    gap: 10px;
+  }
+  .post-content {
+    font-size: 16px;
+    color: #555;
+    line-height: 1.6;
+  }
+  
+  /* Sidebar Styling */
+  .widget {
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+  }
+  .widget h5 {
+    font-size: 18px;
+    margin-bottom: 15px;
+  }
+  .recent-post .recent-main {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+  }
+  .recent-img {
+    width: 60px;
+    height: 60px;
+    border-radius: 8px;
+    margin-right: 10px;
+    object-fit: cover;
+  }
+  .info-img h6 {
+    font-size: 16px;
+    color: #333;
+  }
+  .info-img p {
+    font-size: 12px;
+    color: #888;
+  }
+  

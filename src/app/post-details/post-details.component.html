@@ -1,0 +1,46 @@
+<section class="headings" style="background-image: url('bg-counter2.jpg');">
+  <div class="text-heading text-center">
+    <div class="container">
+      <h1>Blog</h1>
+      <h2>
+        <a routerLink="/post" routerLinkActive="active" class="link-style">POSTS</a> /
+        <a routerLink="/news" routerLinkActive="active" class="link-style">NEWS</a>
+      </h2>
+    </div>
+  </div>
+</section>
+
+<section class="blog blog-section bg-white">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-9 col-md-12 blog-posts">
+        <!-- Vérification que 'post' est bien défini avant d'afficher son contenu -->
+        <div class="post-container" *ngIf="post">
+          <a href="blog-details.html" class="news-img-link">
+            <div class="news-item-img">
+              <img class="img-responsive" src="assets/{{ post.image }}" alt="blog image">
+            </div>
+          </a>
+          <div class="news-item-text details">
+            <h3>{{ post.title }}</h3>
+            <div class="dates">
+              <span class="date">{{ post.postdate }}</span>
+              <ul class="action-list">
+                <li><i class="fa fa-heart"></i> <span>306</span></li>
+                <li><i class="fa fa-comment"></i> <span>34</span></li>
+                <li><i class="fa fa-share-alt"></i> <span>122</span></li>
+              </ul>
+            </div>
+            <p class="post-content">{{ post.postContent }}...</p>
+          </div>
+        </div>
+
+        <!-- Vérifiez que 'post' et 'post.id' sont définis avant d'afficher 'CommentListComponent' -->
+        <app-comment-list *ngIf="post && post.postId" [postId]="post.postId"></app-comment-list>
+        <app-commentadd *ngIf="post && post.postId" [postId]="post.postId"></app-commentadd>
+      </div>
+    </div>
+  </div>
+</section>
+
+<app-footer></app-footer>

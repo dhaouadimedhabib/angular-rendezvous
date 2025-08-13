@@ -1,0 +1,60 @@
+<div class="container mt-5">
+
+  <!-- Bouton de profil dans le coin supérieur droit de la page -->
+  <button mat-button [matMenuTriggerFor]="profileMenu" class="profile-button">
+    <mat-icon>person</mat-icon> Profile
+  </button>
+
+  <mat-menu #profileMenu="matMenu">
+    <button mat-menu-item routerLink="/update">View Profile</button>
+    <button mat-menu-item>Settings</button>
+    <mat-divider></mat-divider>
+    <button mat-menu-item (click)="logout()">Logout</button>
+  </mat-menu>
+
+  <h2 class="text-center mb-4">Appointment List for {{ nomClient }}</h2>
+
+  <!-- Barre de recherche avec un input de type date -->
+  <div class="input-group mb-3">
+    <input type="date" class="form-control" [(ngModel)]="searchTerm">
+    <button class="btn btn-primary" (click)="filterAppointments()">Search</button>
+  </div>
+
+  <!-- Indicateur de chargement -->
+  <div class="loading-spinner text-center" *ngIf="loading">
+    <mat-spinner></mat-spinner>
+    <p>Loading appointments, please wait...</p>
+  </div>
+
+  <!-- Liste de rendez-vous paginée -->
+  <div *ngIf="!loading">
+    <div class="row">
+      <div class="col-md-8 mx-auto">
+        <div class="card mb-3" *ngFor="let rdv of paginatedAppointments">
+          <div class="card-header d-flex justify-content-between align-items-center">
+            <h5 class="mb-0">Appointment on {{ rdv.date }}</h5>
+            <span class="badge" [ngClass]="{
+                'bg-success': rdv.statuts === 'Confirmed',
+                'bg-warning': rdv.statuts === 'Pending',
+                'bg-danger': rdv.statuts === 'Cancelled'
+              }">
+              {{ rdv.statuts }}
+            </span>
+          </div>
+          <div class="card-body">
+            <p><i class="far fa-clock me-2"></i><strong>Start Time:</strong> {{ rdv.debut }}</p>
+            <p><i class="far fa-clock me-2"></i><strong>End Time:</strong> {{ rdv.fin }}</p>
+            <button class="btn btn-outline-primary btn-sm" (click)="openDetailsModal(rdv)">Details</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Pagination -->
+    <div class="pagination-container">
+      <button class="btn btn-secondary me-2" (click)="previousPage()" [disabled]="currentPage === 1">Previous</button>
+      <span>Page {{ currentPage }} of {{ totalPages }}</span>
+      <button class="btn btn-secondary ms-2" (click)="nextPage()" [disabled]="currentPage === totalPages">Next</button>
+    </div>
+  </div>
+</div>

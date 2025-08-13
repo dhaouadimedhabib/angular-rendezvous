@@ -1,0 +1,436 @@
+/* Importation de police et de Bootstrap variables */
+@charset "UTF-8";
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap');
+
+/* Définition des variables de couleurs */
+:root {
+  --bs-primary: #0d6efd; /* Bleu Bootstrap standard, ou une nuance plus moderne si désiré */
+  --bs-link-hover-color: #0a58ca; /* Couleur de survol pour les liens */
+  --bs-dark-blue: #0A1931; /* Un bleu très foncé pour le fond */
+  --bs-light-blue: #185ADB; /* Un bleu plus clair pour les dégradés */
+  --bs-accent-blue: #007bff; /* Bleu d'accent */
+}
+
+/* Fond radial gradient harmonisé */
+.background-radial-gradient {
+  background-color: var(--bs-dark-blue); /* Couleur de fond plus profonde */
+  background-image: radial-gradient(650px circle at 0% 0%, hsl(218, 41%, 25%) 15%, hsl(218, 41%, 20%) 35%, hsl(218, 41%, 15%) 75%, hsl(218, 41%, 10%) 80%, transparent 100%),
+                    radial-gradient(1250px circle at 100% 100%, hsl(218, 41%, 35%) 15%, hsl(218, 41%, 25%) 35%, hsl(218, 41%, 15%) 75%, hsl(218, 41%, 10%) 80%, transparent 100%);
+  /* Effet de centrage pour la section entière */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh; /* S'assurer qu'elle prend toute la hauteur de la vue */
+}
+
+/* Formes radiales avec couleurs harmonisées et ombres */
+#radius-shape-1 {
+  height: 250px;
+  width: 250px;
+  top: -80px;
+  left: -150px;
+  background: radial-gradient(hsl(218, 60%, 40%), hsl(218, 80%, 30%));
+  overflow: hidden;
+  position: absolute;
+  border-radius: 50%;
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
+}
+
+#radius-shape-2 {
+  border-radius: 38% 62% 63% 37% / 70% 33% 67% 30%;
+  bottom: -80px;
+  right: -130px;
+  width: 350px;
+  height: 350px;
+  background: radial-gradient(hsl(218, 60%, 40%), hsl(218, 80%, 30%));
+  overflow: hidden;
+  position: absolute;
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
+}
+
+/* Carte de formulaire (le "bg-glass-modern" amélioré) */
+.card.bg-glass-modern {
+  background-color: hsla(0, 0%, 100%, 0.1) !important; /* Moins d'opacité pour un effet plus doux */
+  backdrop-filter: saturate(180%) blur(30px); /* Plus de flou pour un effet "glass" prononcé */
+  border-radius: 1.5rem; /* Bords plus arrondis */
+  border: 1px solid rgba(255, 255, 255, 0.2); /* Bordure subtile pour l'effet verre */
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3); /* Ombre plus douce et plus large */
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out; /* Animation au survol */
+}
+
+.card.bg-glass-modern:hover {
+  transform: translateY(-5px); /* Léger soulèvement au survol */
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.4); /* Ombre accentuée au survol */
+}
+
+/* Titre du formulaire dans la carte */
+.card-title {
+  color: #fff; /* Blanc pour le titre du formulaire sur le fond translucide */
+}
+
+/* Champs de saisie modernes */
+.form-control.modern-input {
+  background-color: rgba(255, 255, 255, 0.1); /* Fond légèrement transparent */
+  border: 1px solid rgba(255, 255, 255, 0.3); /* Bordure blanche subtile */
+  color: #fff; /* Texte blanc */
+  border-radius: 0.75rem; /* Bords arrondis */
+  padding: 0.75rem 1.25rem; /* Plus d'espace intérieur */
+  transition: all 0.3s ease-in-out;
+}
+
+.form-control.modern-input::placeholder {
+  color: rgba(255, 255, 255, 0.6); /* Couleur du placeholder plus claire */
+}
+
+.form-control.modern-input:focus {
+  background-color: rgba(255, 255, 255, 0.2);
+  border-color: var(--bs-primary); /* Bordure de la couleur primaire au focus */
+  box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25); /* Ombre de focus de Bootstrap */
+  color: #fff;
+}
+
+/* Style pour les messages d'erreur de validation */
+.invalid-feedback-modern {
+  color: #ff6b6b; /* Un rouge d'erreur un peu plus doux */
+  font-size: 0.875rem;
+  margin-top: 0.5rem; /* Espacement avec l'input */
+  display: block; /* S'assurer qu'il prend toute la largeur */
+}
+
+/* Styles pour le champ de téléchargement de fichier (version personnalisée) */
+.file-input {
+    display: none; /* Cache l'input de fichier par défaut */
+}
+
+.file-input-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 0.75rem;
+    padding: 0.75rem 1.25rem;
+}
+
+.custom-file-button {
+    background-color: var(--bs-primary);
+    color: #fff;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out;
+    white-space: nowrap;
+}
+.custom-file-button:hover {
+    background-color: var(--bs-link-hover-color);
+}
+
+.file-name {
+    flex-grow: 1;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+/* Bouton d'inscription moderne (reprise des styles de connexion) */
+.btn.modern-button {
+  background-color: var(--bs-primary); /* Utilise la couleur primaire de Bootstrap */
+  border: none;
+  border-radius: 0.75rem; /* Bords arrondis */
+  padding: 0.75rem 1.5rem;
+  font-weight: 600; /* Plus gras */
+  transition: background-color 0.3s ease-in-out, transform 0.2s ease-in-out;
+  color: #fff; /* Texte blanc */
+}
+
+.btn.modern-button:hover {
+  background-color: var(--bs-link-hover-color); /* Couleur plus foncée au survol */
+  transform: translateY(-2px); /* Léger soulèvement au survol */
+}
+
+.btn.modern-button:active {
+  transform: translateY(0); /* Retour à la position normale au clic */
+}
+
+.btn.modern-button:disabled { /* Style pour le bouton désactivé */
+  background-color: rgba(var(--bs-primary-rgb), 0.5); /* Couleur primaire plus claire/transparente */
+  cursor: not-allowed;
+  transform: none; /* Pas de transformation */
+}
+
+/* Liens "déjà un compte ?" */
+.small-link {
+  font-size: 0.9rem;
+  color: var(--bs-primary) !important;
+  transition: color 0.2s ease-in-out;
+}
+
+.small-link:hover {
+  color: var(--bs-link-hover-color) !important;
+}
+
+/* Checkbox (ajuster si nécessaire pour le style moderne) */
+.form-check-input {
+  background-color: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  transition: all 0.2s ease-in-out;
+}
+.form-check-input:checked {
+  background-color: var(--bs-primary);
+  border-color: var(--bs-primary);
+}
+.form-check-label {
+    color: rgba(255, 255, 255, 0.7); /* Texte de label plus clair */
+}
+
+/* Styles pour les titres du fond */
+.background-radial-gradient h1.text-white {
+  color: #2c2b2b91 !important;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+.background-radial-gradient p.lead {
+  color: #2c2b2b !important;
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
+}
+
+/* Améliorations responsives */
+@media (max-width: 991.98px) { /* Pour les écrans plus petits que large (lg) */
+  .background-radial-gradient {
+    padding: 2rem 1rem;
+  }
+  .container.px-4.py-5.px-md-5.text-center.text-lg-start.my-5 {
+    padding: 0;
+  }
+  .card-body {
+    padding: 2.5rem !important;
+  }
+  h1.display-5 {
+    font-size: 2.25rem !important;
+    margin-bottom: 1rem !important;
+  }
+  .lead {
+    font-size: 1rem !important;
+  }
+}
+
+@media (max-width: 767.98px) { /* Pour les écrans plus petits que medium (md) */
+    #radius-shape-1, #radius-shape-2 {
+        display: none; /* Masquer les formes sur très petits écrans si elles gênent */
+    }
+    .col-lg-6.mb-5.mb-lg-0 {
+        margin-bottom: 2rem !important;
+    }
+}
+
+/* ************************************************************************** */
+/* Styles pour le modal "Add Appointment" (basé sur image_1c6564.png) */
+/* ************************************************************************** */
+
+.modal-content {
+    border-radius: 1.5rem;
+    padding: 2rem;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+}
+
+.modal-header {
+    border-bottom: none;
+    padding-bottom: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.modal-title {
+    color: var(--bs-primary);
+    font-weight: 700;
+}
+
+.btn-close {
+    font-size: 1.25rem;
+    color: #000;
+}
+
+.form-group {
+    margin-bottom: 1rem;
+}
+
+.form-group label {
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+    display: block;
+}
+
+.form-control-modal {
+    border: 1px solid #ced4da;
+    border-radius: 0.5rem;
+    padding: 0.75rem 1rem;
+    width: 100%;
+    box-sizing: border-box;
+    transition: border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+.form-control-modal:focus {
+    border-color: var(--bs-primary);
+    box-shadow: 0 0 0 0.2rem rgba(13, 110, 253, 0.25);
+    outline: none;
+}
+
+.btn-group {
+    display: flex;
+    justify-content: flex-end;
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+.btn-cancel {
+    background-color: #e9ecef;
+    color: #6c757d;
+    border: 1px solid #ced4da;
+    border-radius: 0.5rem;
+    padding: 0.75rem 1.5rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.btn-cancel:hover {
+    background-color: #d6d8db;
+}
+
+.btn-add {
+    background-color: var(--bs-primary);
+    color: #fff;
+    border: none;
+    border-radius: 0.5rem;
+    padding: 0.75rem 1.5rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.btn-add:hover {
+    background-color: var(--bs-link-hover-color);
+}
+
+
+/* ************************************************************************** */
+/* Styles pour la liste des rendez-vous (basé sur image_b3bdde.png) */
+/* ************************************************************************** */
+
+body {
+    background-color: #f8f9fa;
+    font-family: 'Roboto', sans-serif;
+}
+
+.appointment-list-container {
+    padding: 2rem;
+    max-width: 900px;
+    margin: auto;
+}
+
+.page-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+.page-header h1 {
+    font-weight: 700;
+    color: #343a40;
+    font-size: 2rem;
+}
+
+.profile-link {
+    text-decoration: none;
+    color: #343a40;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.search-bar-container {
+    background-color: #fff;
+    border-radius: 0.75rem;
+    padding: 1rem;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.search-input {
+    border: none;
+    background: transparent;
+    font-size: 1rem;
+    flex-grow: 1;
+    padding: 0.5rem;
+}
+
+.search-button {
+    background-color: var(--bs-primary);
+    color: #fff;
+    border: none;
+    border-radius: 0.5rem;
+    padding: 0.5rem 1.5rem;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.appointment-card {
+    background-color: #fff;
+    border-radius: 0.75rem;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    padding: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.appointment-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.appointment-info {
+    font-size: 0.9rem;
+    color: #6c757d;
+}
+
+.appointment-status {
+    font-weight: 600;
+    color: #ffc107; /* Jaune pour le statut "EN_ATTENTE" */
+}
+
+.appointment-time {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: #495057;
+    margin-bottom: 0.5rem;
+}
+
+.appointment-details-button {
+    text-decoration: none;
+    color: var(--bs-primary);
+    font-weight: 500;
+    transition: color 0.2s;
+}
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+.pagination-link {
+    text-decoration: none;
+    color: var(--bs-primary);
+    font-weight: 600;
+}

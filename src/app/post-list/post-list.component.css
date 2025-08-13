@@ -1,0 +1,141 @@
+.product-container {
+    margin-bottom: 30px; /* Ajout d'un espacement entre chaque produit */
+}
+
+.headings {
+    position: relative;
+    padding: 100px 0;
+    background-image: url("bg-counter2.jpg");
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    overflow: hidden;
+}
+
+.headings::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Ajout d'une superposition noire semi-transparente */
+}
+
+.headings .text-heading {
+    position: relative;
+    z-index: 1; /* Placez le texte au-dessus de l'overlay */
+}
+
+.headings h1 {
+    color: #fff;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+}
+
+.headings h2 {
+    color: #fff;
+    font-size: 15px;
+}
+
+.headings h2 a {
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+}
+
+.headings h2 a:hover {
+    color: red; /* Ajout d'une couleur au survol */
+}
+
+.news-item {
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+.news-item:hover {
+    transform: scale(1.05);
+}
+
+.news-item-img img {
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+}
+
+.news-item-text {
+    padding: 15px;
+}
+
+.news-item-text h3 {
+    color: #333;
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.news-item-text .dates {
+    font-size: 14px;
+    color: #777;
+}
+
+.news-item-text .action-list {
+    list-style: none;
+    padding-left: 0;
+}
+
+.news-item-text .action-item {
+    display: inline-block;
+    margin-right: 10px;
+}
+
+.news-item-text .news-item-descr {
+    margin: 15px 0;
+}
+
+.news-item-bottom .news-link {
+    color: #007bff;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.news-item-bottom .news-link:hover {
+    color: red;
+}
+
+.recent-post .recent-main {
+    margin-bottom: 20px;
+}
+
+.recent-img img {
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+}
+
+.recent-post .info-img h6 {
+    font-size: 16px;
+    color: #333;
+    margin-top: 10px;
+}
+
+.recent-post .info-img p {
+    font-size: 14px;
+    color: #777;
+}
+
+.recent-post .recent-main:hover .info-img h6 {
+    color: red;
+}
+
+.recent-post h5 {
+    font-weight: bold;
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+
+footer {
+    background-color: #333;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+}
