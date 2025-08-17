@@ -12,12 +12,12 @@ export class UserService {
 
   private baseurl_register = 'http://https://springbootrendesvous.onrender.com/api/auth/signup';
   private baseUrl_auth = 'http://https://springbootrendesvous.onrender.comapi/auth';
-  private apiUrl = 'http://localhost:8084/api/user';
-  private baseUrl = 'http://localhost:8084/api/user'; // Base URL for user-related endpoints
-  private apiUr2 = 'http://localhost:8084/api/user/professionnels';
-  private changeurl = 'http://localhost:8084/api/user/forgot-password';
-  private reseturl = 'http://localhost:8084/api/user';
-  private Url = 'http://localhost:8084/api/auth';
+  private apiUrl = 'http://springbootrendesvous.onrender.com/api/user';
+  private baseUrl = 'http://springbootrendesvous.onrender.com/api/user'; // Base URL for user-related endpoints
+  private apiUr2 = 'http://springbootrendesvous.onrender.com/api/user/professionnels';
+  private changeurl = 'http://springbootrendesvous.onrender.com/api/user/forgot-password';
+  private reseturl = 'http://springbootrendesvous.onrender.com/api/user';
+  private Url = 'http://springbootrendesvous.onrender.com/api/auth';
   constructor(private http: HttpClient, private router : Router) { }
   
   register(User: any): Observable<any> {
