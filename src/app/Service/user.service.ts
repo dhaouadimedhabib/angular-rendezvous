@@ -10,7 +10,7 @@ import { Router } from '@angular/router';
 })
 export class UserService {
 
-  private baseurl_register = 'http://localhost:8084/api/auth/signup';
+  private baseurl_register = 'http://https://springbootrendesvous.onrender.com/api/auth/signup';
   private baseUrl_auth = 'http://localhost:8084/api/auth';
   private apiUrl = 'http://localhost:8084/api/user';
   private baseUrl = 'http://localhost:8084/api/user'; // Base URL for user-related endpoints
