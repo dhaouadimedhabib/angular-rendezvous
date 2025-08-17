@@ -10,14 +10,14 @@ import { Router } from '@angular/router';
 })
 export class UserService {
 
-  private baseurl_register = 'http://https://springbootrendesvous.onrender.com/api/auth/signup';
-  private baseUrl_auth = 'http://https://springbootrendesvous.onrender.comapi/auth';
-  private apiUrl = 'http://springbootrendesvous.onrender.com/api/user';
-  private baseUrl = 'http://springbootrendesvous.onrender.com/api/user'; // Base URL for user-related endpoints
-  private apiUr2 = 'http://springbootrendesvous.onrender.com/api/user/professionnels';
-  private changeurl = 'http://springbootrendesvous.onrender.com/api/user/forgot-password';
-  private reseturl = 'http://springbootrendesvous.onrender.com/api/user';
-  private Url = 'http://springbootrendesvous.onrender.com/api/auth';
+ private baseurl_register = 'https://springbootrendesvous.onrender.com/api/auth/signup';
+private baseUrl_auth      = 'https://springbootrendesvous.onrender.com/api/auth';
+private apiUrl            = 'https://springbootrendesvous.onrender.com/api/user';
+private baseUrl           = 'https://springbootrendesvous.onrender.com/api/user'; // Base URL for user-related endpoints
+private apiUr2            = 'https://springbootrendesvous.onrender.com/api/user/professionnels';
+private changeurl         = 'https://springbootrendesvous.onrender.com/api/user/forgot-password';
+private reseturl          = 'https://springbootrendesvous.onrender.com/api/user';
+private Url               = 'https://springbootrendesvous.onrender.com/api/auth';
   constructor(private http: HttpClient, private router : Router) { }
   
   register(User: any): Observable<any> {
