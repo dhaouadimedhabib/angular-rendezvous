@@ -105,7 +105,7 @@ forgotPassword(email: string): Observable<string> {
 }
 
 resetPassword(token: string, password: string): Observable<string> {
-  const url = `http://localhost:8084/api/user/reset-password?token=${token}&password=${password}`;
+  const url = `https://springbootrendesvous.onrender.com/api/user/reset-password?token=${token}&password=${password}`;
   return this.http.put(url, null, { responseType: 'text' });
 }
 
