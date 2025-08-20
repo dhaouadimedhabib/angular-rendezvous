@@ -119,7 +119,7 @@ filterUsersByService(serviceName: string): Observable<User[]> {
 }
 
 getServices(): Observable<string[]> {
-  return this.http.get<string[]>(`http://localhost:8084/api/services`);
+  return this.http.get<string[]>(`https://springbootrendesvous.onrender.com/api/services`);
 }
 
 }
