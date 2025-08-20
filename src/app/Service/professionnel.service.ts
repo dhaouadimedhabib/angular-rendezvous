@@ -7,9 +7,9 @@ import { Disponibilite } from '../modele/Disponibilite';
   providedIn: 'root'
 })
 export class ProfessionnelService {
-  private baseUrl = 'http://localhost:8084/api/Professionnel';
-  private apiUrl = 'http://localhost:8084/api/Disponibilite'; // Remplacez par votre URL d'API
-  private baseUrl1 = 'http://localhost:8084/api/Disponibilite';
+  private baseUrl = 'https://springbootrendesvous.onrender.com/api/Professionnel';
+  private apiUrl = 'https://springbootrendesvous.onrender.com/api/Disponibilite'; // Remplacez par votre URL d'API
+  private baseUrl1 ='https://springbootrendesvous.onrender.com/api/Disponibilite';
 
   constructor(private http: HttpClient) { }
 
