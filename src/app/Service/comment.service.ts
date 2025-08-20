@@ -8,8 +8,8 @@ import { PostComment } from '../modele/PostComment';
 })
 export class CommentService {
 
-  private baseUrl = 'http://localhost:8084/api/comment'; // URL de base pour l'API
-  private apiUrl = 'http://localhost:8084/api/comment/post'; 
+  private baseUrl = 'https://springbootrendesvous.onrender.com/api/comment'; // URL de base pour l'API
+  private apiUrl = 'https://springbootrendesvous.onrender.com/api/comment/post'; 
   constructor(private http: HttpClient) {}
 
   // Méthode pour ajouter un commentaire à un post spécifique
