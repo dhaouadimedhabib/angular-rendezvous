@@ -8,8 +8,8 @@ import { Reclamation } from '../modele/reclamation';
 })
 export class ReclamationService {
 
-  private baseUrl = 'http://localhost:8084/api/reclamation';
-  private apiUrl = 'http://localhost:8084/api/reclamation/all';
+  private baseUrl = 'https://springbootrendesvous.onrender.com/api/reclamation';
+  private apiUrl = 'https://springbootrendesvous.onrender.com/api/reclamation/all';
   constructor(private http: HttpClient) {}
 
   addReclamation(reclamation: Reclamation): Observable<Reclamation> {
