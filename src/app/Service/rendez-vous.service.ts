@@ -8,11 +8,11 @@ import { RendezVous } from '../modele/rendezvous';
 })
 export class RendezVousService {
 
-  private apiUrl = 'http://localhost:8084/api/RendezVous';
-  private baseUrl = 'http://localhost:8084/api/RendezVous/professionnel';
-  private Url = 'http://localhost:8084/api/RendezVous';
-  private apiUri = 'http://localhost:8084/api/RendezVous';
-  private url = 'http://localhost:8084/api/RendezVous';
+  private apiUrl = 'https://springbootrendesvous.onrender.com/api/RendezVous';
+  private baseUrl = 'https://springbootrendesvous.onrender.com/api/RendezVous/professionnel';
+  private Url = 'https://springbootrendesvous.onrender.com/api/RendezVous';
+  private apiUri = 'https://springbootrendesvous.onrender.com/api/RendezVous';
+  private url = 'https://springbootrendesvous.onrender.com/api/RendezVous';
   constructor(private http: HttpClient) { }
 
 
