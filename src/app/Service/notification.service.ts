@@ -7,7 +7,7 @@ import { catchError } from 'rxjs/operators';
   providedIn: 'root'
 })
 export class NotificationService {
-  private apiUrl = 'http://localhost:8084/api/notifications'; // Update this if necessary
+  private apiUrl = 'https://springbootrendesvous.onrender.com/api/notifications'; // Update this if necessary
 
   constructor(private http: HttpClient) {}
 
