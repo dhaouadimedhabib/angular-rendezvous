@@ -5,7 +5,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class PaiementService {
-  private apiUrl = 'http://localhost:8084/api/paiement'; // URL de votre API
+  private apiUrl = 'https://springbootrendesvous.onrender.com/paiement'; // URL de votre API
 
   constructor(private http: HttpClient) {}
 
