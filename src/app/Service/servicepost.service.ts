@@ -12,10 +12,10 @@ export class ServicepostService {
   constructor(private http: HttpClient) { }
 
 
-  private baseUrl = 'http://localhost:8084/api/post/posts';
-  private BASE_URL_DELETE ='http://localhost:8084/dPost/'
-  private BASE_URL_AJOUT ='http://localhost:8000/PI/api/post/addPost'
-   private apiUrl ='http://localhost:8084/api/post/user'
+  private baseUrl = 'https://springbootrendesvous.onrender.com/api/post/posts';
+  private BASE_URL_DELETE ='https://springbootrendesvous.onrender.com/dPost/'
+  private BASE_URL_AJOUT ='https://springbootrendesvous.onrender.com/PI/api/post/addPost'
+   private apiUrl ='https://springbootrendesvous.onrender.com/api/post/user'
     // need to build URL based on category id 
    
   
@@ -33,11 +33,11 @@ export class ServicepostService {
     return this.http.post<Post>(`${this.BASE_URL_AJOUT}/${id}` ,Post)
   }
   updatePost(data:any){
-    return this.http.put('http://localhost:8084/api/post/updatePost' ,data)
+    return this.http.put('https://springbootrendesvous.onrender.com/api/post/updatePost' ,data)
   }
   getOffreById(id :any){
     console.log('gg' , id)
-    return this.http.get('http://localhost:8084/api/post/'+id)
+    return this.http.get('https://springbootrendesvous.onrender.com/api/post/'+id)
   }
   
   getPostsByUserId(userId: number): Observable<any> {
